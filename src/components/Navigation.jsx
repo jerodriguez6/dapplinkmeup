@@ -20,17 +20,13 @@ const Navigation = ({mode}) => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 110px;
     //dark mode
     color: ${mode ? "#fff" : "#000"};
     transition: all 0.5s ease;
-    
- 
-    max-width: 1080px;
-    margin: 10px auto;
+    width:86%;
+    margin: 10px 6% 3%; 
     @media (max-width: 768px) {
         flex-direction: column;
-        height: 220px;
     }
     `;
 
@@ -38,12 +34,13 @@ const Navigation = ({mode}) => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 5px;
-    height: 110px;
-    //dark mode
-    width: 60%;
-  
-    @media (max-width: 768px) {width: 100%;}
+    padding:5px 5px;
+
+    width: 100%;
+    border: 2px;
+    box-shadow: 0 0 0 2px #5B6EFF;
+    border-radius: 10px;
+    
     `
 
     const NavigationBox = styled.div`
@@ -74,6 +71,34 @@ const Navigation = ({mode}) => {
     @media (max-width: 500px) {
         width: 50px;
         height: 50px;
+    }
+    `
+    const NavigationLinks = styled.div`
+    display:flex;
+    justify-content:center;
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    padding:5px 20px;
+    width:100%;
+   
+    &.selected {
+        // gradient border
+        background: ${mode ? "linear-gradient(to right , #5B6EFF, #83DEFF)" : "transparent"};
+        padding:10px;
+    }
+    //transition: all 0.5s ease;
+    @media (max-width: 768px) {
+        font-size: 9px;
+        border-radius: 10px;
+
+
+    }
+    @media (max-width: 500px) {
+        font-size: 7px;
+        width:14%;
+
     }
     `
 
@@ -146,11 +171,14 @@ const Navigation = ({mode}) => {
     
     const [frontAddress, setFrontAddress] = useState('')
     const [totalBalance, setTotalBalance] = useState(0)
+    const [selectedLink, setSelectedLink] = useState("");
 
     const navigate = useNavigate();
 
     const handleClick = (link) => {
         navigate(link);
+        setSelectedLink(link);
+
     }
 
     useEffect(() => {
@@ -179,13 +207,15 @@ const Navigation = ({mode}) => {
         <FirstPart>
             {navigationBar.map((item, index) => {
                 return (
-                    <NavigationBox key={index} onClick={() => handleClick(item.link)}>
-                        {item.icon}
-                        <div>{item.name}</div>
-                    </NavigationBox>
+                    <NavigationLinks 
+                        key={index} 
+                        onClick={() => handleClick(item.link)}
+                        className={selectedLink === item.link || (selectedLink === "" && item.link === "/") ? "selected" : ""}
+
+                        >{item.name}</NavigationLinks>
                 )})}
         </FirstPart>
-        <SecondPart>
+        {/*<SecondPart>
             <BoxContent>
                 <BiWallet size={20} />
                 {connected ? frontAddress : 'Connect Wallet'}
@@ -194,7 +224,7 @@ const Navigation = ({mode}) => {
                 <BiCoinStack size={20} />
                 Total balance: {totalBalance} USD
             </BoxContent>
-        </SecondPart>
+        </SecondPart>*/}
     </Navigation>
 
   )

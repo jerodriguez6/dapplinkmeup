@@ -1,0 +1,15 @@
+.reed{
+    opacity: 0.5;
+    z-index: 1;
+    color: rgba(181, 178, 178, 0.5);
+    background-image: url(../assets/banner.png);
+    background-repeat: no-repeat;
+    background-size: 23%;
+    flex-direction: column;
+    font-size: 12px;
+    /*margin-bottom: ;
+    padding: ;
+    width: ;
+    border-image: ;
+    justify-content: ;*/
+}
