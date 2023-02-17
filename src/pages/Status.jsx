@@ -10,11 +10,13 @@ import WithdrawModal from '../components/WithdrawModal'
 import { connectWallet } from '../redux/web3Actions'
 import retiroefectivoAzul from '../assets/retiroefectivoAzul.png'
 import mano from '../assets/mano.png'
+import Footer from '../components/Footer'
+
+
 const Status = ({mode}) => {
 
     const Status = styled.div`
     gap: 20px;
-    height: 70vh;
     width: 90%;
     display: grid;
     grid-template-columns: repeat(2, minmax(50%,1fr)); 
@@ -350,6 +352,7 @@ const Status = ({mode}) => {
             }
 
         </Status>
+        <Footer />
         </>
     )
 }

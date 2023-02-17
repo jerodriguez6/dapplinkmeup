@@ -3,6 +3,9 @@ import { useEffect } from 'react'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
 import { ethers } from 'ethers'
+import Footer from '../components/Footer'
+
+
 const History = () => {
 
     const History = styled.div`
@@ -138,6 +141,7 @@ const History = () => {
     //console.log("withdrawHistory", withdrawHistory)
     //console.log("rewardHistory", rewardHistory)
     return (
+        <>
         <Team>
             <Section>
                 <div>
@@ -205,6 +209,9 @@ const History = () => {
 
             </History>
         </Team>
+        <Footer />
+
+        </>
     )
 }
 

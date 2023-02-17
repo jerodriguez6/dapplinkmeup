@@ -10,6 +10,8 @@ import retiroefectivoAzul from '../assets/retiroefectivoAzul.png'
 import mano from '../assets/mano.png'
 import fama from '../assets/fama.png'
 import NFT from '../assets/NFT.png'
+import Footer from '../components/Footer'
+
 
 const Home = ({ mode }) => {
     const Home = styled.div`
@@ -20,6 +22,9 @@ const Home = ({ mode }) => {
     max-width: 1190px;
     margin: 0 auto;
     position: relative;
+    @media (max-width: 532px) {
+        height: 200vh;
+    }
     `
 
     const UpperBody = styled.div`
@@ -45,11 +50,6 @@ const Home = ({ mode }) => {
     align-items: center;
     padding: 0 20px;
     width: 100%;
-    @media (max-width: 768px) {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); 
-    }
-  
     `
 
     const Tittle = styled.div`
@@ -473,6 +473,7 @@ const Home = ({ mode }) => {
                         </BottomContent>
                     </FirstPart>
                 </FooterBody>
+                <Footer />
             </Home>
         </>
     )

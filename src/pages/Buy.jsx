@@ -21,6 +21,7 @@ import puntasflechaizquierda from '../assets/puntasflechaizquierda.png'
 import priceIcon from '../assets/price.png'
 import lowIcon from '../assets/low.png'
 import coinIcon from '../assets/coin.png'
+import Footer from '../components/Footer'
 
 
 const Buy = ({ mode }) => {
@@ -35,6 +36,9 @@ const Buy = ({ mode }) => {
     margin-bottom:4%;
     @media (max-width: 768px) {
         flex-direction: column;
+        height: 140vh;
+    }
+    @media (max-width: 500px) {
     }
     `
 
@@ -301,7 +305,7 @@ const Buy = ({ mode }) => {
         flex-direction:column;
         gap: 20px;
     }
-
+    
     `
     const SectionPrice = styled.div`
     width:100%;
@@ -314,7 +318,7 @@ const Buy = ({ mode }) => {
     p{
         <font-size:20></font-size:20>px;
     }
-   
+    
     `
     const SectionTotal = styled.div`
     width:100%;
@@ -327,7 +331,19 @@ const Buy = ({ mode }) => {
     p{
         font-size:26px;
     }
-   
+    
+    `
+    const FoterDiv = styled.div`
+    @media (max-width: 768px) {
+       display:none;
+   }
+    
+    `
+    const FoterDiv2 = styled.div`
+    @media (min-width: 768px) {
+       display:none;
+   }
+    
     `
 
     const { connected, account, tokenContract, paymentContract, referalPerLevel, referalPlans, loading } = useSelector(state => state.web3)
@@ -540,8 +556,17 @@ return (
                     </OrangeButton>
                 )}
             {/*</Section>*/}
+            <FoterDiv2>
+                <Footer />
+
+            </FoterDiv2>
         </RightPart>
+
     </Buy>
+    <FoterDiv>
+        <Footer />
+
+    </FoterDiv>
 </>
 )
 }

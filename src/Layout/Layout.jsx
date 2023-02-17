@@ -307,7 +307,6 @@ const Layout = ({mode, toggleMode}) => {
         <TopBar mode={mode} toggleMode={toggleMode}/>
         <Navigation mode={mode} />
         <Outlet />
-        <Footer />
     </>
   )
 }

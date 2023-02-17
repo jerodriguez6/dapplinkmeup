@@ -13,6 +13,8 @@ import nft8png from '../assets/8.png'
 import nft9png from '../assets/9.png'
 import nft10png from '../assets/10.png'
 import backImg from '../assets/back/GRIS.png'
+import Footer from '../components/Footer'
+
 
 const Matrix = ({mode}) => {
 
@@ -33,7 +35,7 @@ const Matrix = ({mode}) => {
     display: flex;
 
     gap: 20px;
-    height: 70vh;
+    height: 90vh;
     
     flex-direction: column;
 
@@ -65,6 +67,13 @@ const Matrix = ({mode}) => {
         font-weight: 600;
         border:2px solid #5b6eff;
         text-aling:center;
+    }
+    @media (max-width: 500px) {
+        select {
+            font-size: 20px;
+
+        }
+
     }
     `
 
@@ -140,6 +149,11 @@ const Matrix = ({mode}) => {
     border-radius: 10px;  
     align-items:center;
     gap: 8%;
+    @media (max-width: 500px) {
+       p{
+        font-size:8px;
+       }
+    }
   `
 
     const {accountLevel, nftByLevel, paymentContract} = useSelector(state => state.web3)
@@ -495,6 +509,8 @@ const Matrix = ({mode}) => {
            <h3>Dont have access to this level</h3>         
         </Wrapper>
         }*/}
+                <Footer />
+
     </Matrix>
   )
 }

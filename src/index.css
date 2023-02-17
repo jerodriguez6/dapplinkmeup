@@ -8,7 +8,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
   /*max-height: 100vh;*/
-  background: linear-gradient(to bottom right, #0A0921, #191321);
+  background: #0A0921;
 
 
 }

@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { ethers } from 'ethers'
+import Footer from '../components/Footer'
 
 const Team = () => {
     const Team = styled.div`
@@ -84,6 +85,7 @@ const Team = () => {
 
 
   return (
+    <>
     <Team>
         {/*<Section>*/}
                 {/* <div>                
@@ -94,23 +96,23 @@ const Team = () => {
                 
                 </div>
                 <div>
-                    <label>Filter by status</label>
-                    <select>
-                        <option>all</option>
-                        <option>active</option>
-                        <option>inactive</option>
-                    </select>
+                <label>Filter by status</label>
+                <select>
+                <option>all</option>
+                <option>active</option>
+                <option>inactive</option>
+                </select>
                 </div>
                 <div>
-                    <label>Filter by level</label>
-                    <select>
-                        <option>all</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                    </select>
-                </div> */}
+                <label>Filter by level</label>
+                <select>
+                <option>all</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                </select>
+            </div> */}
         {/*</Section>*/}
         <table className="table">
             <thead className="table-header">
@@ -124,7 +126,7 @@ const Team = () => {
             </thead>
             <tbody className="table-body">
                 {/*{ 
-                referalPerLevel.length > 0 &&
+                    referalPerLevel.length > 0 &&
                 referalPerLevel.map((item, index) => (*/}
                     <tr  className="table-row">
                         <th scope="row">ffviujuibytf6tgui</th>
@@ -134,13 +136,14 @@ const Team = () => {
                         <td>fghjklñ</td>
                         {/*<td>{item.level}</td>
                         <td>{item.status? "active" : "inactive"}</td>
-                        <td>{item.countReferals}</td>*/}
+                    <td>{item.countReferals}</td>*/}
                     </tr>
                 
             </tbody>
         </table>
-
     </Team>
+    <Footer />
+    </>
   )
 }
 
