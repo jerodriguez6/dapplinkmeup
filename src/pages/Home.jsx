@@ -4,25 +4,43 @@ import { useSelector } from 'react-redux'
 import { NFT_PRICES } from '../const'
 import {BiCollapse} from 'react-icons/bi'
 import { useNavigate } from 'react-router-dom'
+import persona from '../assets/persona.png'
+import grupo from '../assets/grupo.png'
+import retiroefectivoAzul from '../assets/retiroefectivoAzul.png'
+import mano from '../assets/mano.png'
+import fama from '../assets/fama.png'
+import NFT from '../assets/NFT.png'
+import Footer from '../components/Footer'
+
 
 const Home = ({ mode }) => {
     const Home = styled.div`
     display: flex;
     padding: 0 20px;
     flex-direction: column;
-    height: 70vh;
+    height: 85vh;
     max-width: 1190px;
     margin: 0 auto;
     position: relative;
+    @media (max-width: 532px) {
+        height: 200vh;
+    }
     `
 
     const UpperBody = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height:40%;
-    
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));    
+    width:97%;
+    margin-left:3%;
+    @media (max-width: 1072px) {
+        grid-template-columns: repeat(2, minmax(250px,1fr)); 
+    }
+    @media (max-width: 532px) {
+        grid-template-columns: repeat(1, minmax(250px,1fr));
+        margin-left:6%;
+
+    }
+
     `
 
     const FirstPart = styled.div`
@@ -31,21 +49,15 @@ const Home = ({ mode }) => {
     justify-content: space-around;
     align-items: center;
     padding: 0 20px;
-    height:80%;
-    width: 40%;
-    min-width: 200px;
+    width: 100%;
     `
 
     const Tittle = styled.div`
     display: flex;
-    justify-content:initial;
+    justify-content: space-between;
     align-items: center;
-    
-    height: 30%;
-    min-height: 20px;
-    padding-left: 10px;
-    background: ${mode ? "linear-gradient(#1c1c1e,#131314) padding-box" : "linear-gradient(#59595c,#414145) padding-box"};
-    font-weight: 600;
+    padding: 10px 20px;
+    font-size: 20px;
     color: #fff;
     border-radius: 5px 5px 0 0;
     @media (max-width: 768px) {
@@ -58,10 +70,8 @@ const Home = ({ mode }) => {
     justify-content:center;
     align-items: center;
     width: 100%;
-    height: 70%;
-    min-height: 30px;
-    padding-left: 10px;
-    min-height: 40px;
+    flex-direction:column;
+    margin-bottom: 15%;
     `
 
     const SecondPart = styled.div`
@@ -69,38 +79,44 @@ const Home = ({ mode }) => {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
-    height:80%;
-    width: 60%;
+    //padding: 0 20px;
+    //height:80%;
+    width: 100%;
     `
 
     const BoxContent = styled.div`
     display: flex;
-    //justify-content: center;
+    justify-content: center;
     align-items: initial;
     flex-direction: column;
     width: 90%;
-    height: 40%;
-    min-height: 40px;
-    background: ${mode ? "linear-gradient(#2b2b31,#2a2a30) padding-box" : "linear-gradient(#bfbfc0,#b4b4b9) padding-box"};
-    border-radius: 5px;
-    margin: 5px 0;
-    min-height: 30px;
-    box-shadow: 5px 2px 1px 1px ${mode ? "#fff" : "#00000080"};
+    background: ${mode ? "transparent" : "linear-gradient(#bfbfc0,#b4b4b9) padding-box"};
+    border: 2px solid #5b6eff;
+    border-radius: 20px;
+    margin-bottom: 5%;
     &:hover {
         transform: scale(1.01);
         transition: 0.3s;
     }
+
     `
 
     const MidBody = styled.div`
     margin-top: 20px;
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
-    height: 210px;
-    
+    width:95%;
+    position:relative;
+    grid-template-columns: repeat(auto-fit, minmax(50%,1fr)); 
+    margin-left:5%;
+    @media (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-left:0%;
+
+    }
     `
 
     const BottomBody = styled.div`
@@ -109,7 +125,6 @@ const Home = ({ mode }) => {
     justify-content: space-around;
     align-items: center;
     padding: 0 20px;
-    height: 110px;
    
     `
 
@@ -120,15 +135,19 @@ const Home = ({ mode }) => {
     align-items: center;
     padding: 0 20px;
     height: 110px;
+      @media (max-width: 768px) {
+        flex-direction: column;
+
+    }
     
     `
 
     const LevelBox = styled.div`
     display: flex;
-    justify-content: initial;
     align-items: center;
     width: 100%;
     padding-left: 10px;
+    
     `
 
     const ProgressBar = styled.div`
@@ -136,11 +155,11 @@ const Home = ({ mode }) => {
     justify-content: initial;
     align-items: center;
     width: 85%;
-    height: 30%;
-    min-height: 20px;
+    //height: 30%;
+    //min-height: 20px;
     margin-left: 10px;
-    border: 1px solid white;
-    border-radius: 5px;
+    //border: 1px solid white;
+    //border-radius: 5px;
     padding: 4px 0;
     @media (max-width: 768px) {
         width: 80%;
@@ -148,23 +167,25 @@ const Home = ({ mode }) => {
     `
 
     const ProgressBarPercent = styled.div`
-    display: flex;
-    justify-content: initial;
-    align-items: center;
-    width: 50%;
-    height: 100%;
-    min-height: 20px;
-    background: linear-gradient(to right, rgba(240, 159, 94, 1), rgba(87, 80, 245, 1), rgba(134, 230, 255, 1)) padding-box;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-    border-left: 1px solid white;
+    //display: flex;
+    //justify-content: initial;
+    //align-items: center;
+    //width: 50%;
+    //height: 100%;
+    //min-height: 20px;
+    //background: linear-gradient(to right, rgba(240, 159, 94, 1), rgba(87, 80, 245, 1), rgba(134, 230, 255, 1)) padding-box;
+    //border-top: 1px solid white;
+    //border-bottom: 1px solid white;
+    //border-left: 1px solid white;
     `
 
     const BottomContent = styled.div`
     display: flex;
-    //justify-content: center;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
+    align-items:center;
+
     width: 90%;
     height: 40%;
     min-height: 30px;
@@ -180,8 +201,10 @@ const Home = ({ mode }) => {
     const BottomWrapper = styled.div`
     padding: 0 20px;
     width: 100%;
-    height: 100%;
-    min-width: 200px;
+    display:flex;
+    gap:5%;
+        align-items:center;
+
     `
 
     const PartnerBlob = styled.div`
@@ -199,7 +222,49 @@ const Home = ({ mode }) => {
     z-index: 999;
     cursor: pointer;
     `
+    const BoxContentImg = styled.img`
+    width: 10%;
+    @media (max-width: 1072px) {
+        width: 6%;
 
+    }
+    @media (max-width: 768px) {
+        width:9%;
+    }
+
+    `;
+    const BoxContentImg2 = styled.img`
+    width: 10%;
+   @media (max-width: 768px) {
+        width:6%;
+    }
+    `;
+    const TextBodyP = styled.p`
+    font-size: 15px;
+    margin-top: -5%;
+
+    `;
+    const TextBodyN = styled.p`
+    font-size: 50px;
+    color: #83DEFF;
+    font-weight: 700;
+ 
+    `;
+    const BoxContentSell = styled.div`
+    width:100%;
+    display: flex;
+    align-items:center;
+
+    background: ${mode ? "transparent" : "linear-gradient(#bfbfc0,#b4b4b9) padding-box"};
+    border: 2px solid #5b6eff;
+    border-radius: 20px;
+    padding: 10px 15px;
+    @media (max-width: 768px) {
+        padding: 10px 15px;
+
+    }
+    `;
+    
     const { connected, accountLevel, referalPlans, investmentPlans, totalSupply, allAccounts, referalsCounter, account } = useSelector(state => state.web3)
 
     const navigate = useNavigate()
@@ -252,49 +317,58 @@ const Home = ({ mode }) => {
                 <UpperBody>
 
 
-                    <FirstPart>
+                    {/*<FirstPart>*/}
+
                         <BoxContent>
                             <Tittle>
-                                ACCOUNT
+                                <BoxContentImg src={persona} alt="persona"/>
+                                Account
                             </Tittle>
                             <TextBody>
-                                Level: {accountLevel}
+                               <TextBodyN>{accountLevel}</TextBodyN>
+                                <TextBodyP>Level</TextBodyP> 
                             </TextBody>
                         </BoxContent>
                         <BoxContent>
                             <Tittle>
-                                TEAM
+                                <BoxContentImg src={grupo} alt="persona"/>
+                                Team
                             </Tittle>
                             <TextBody>
-                                Count {referalsCounter}
-                            </TextBody>
-                        </BoxContent>
-                    </FirstPart>
-                    <SecondPart>
-                        <BoxContent>
-                            <Tittle>
-                                BALANCE
-                            </Tittle>
-                            <TextBody>
-                                Total: {totalBalance}
+                               <TextBodyN>{referalsCounter}</TextBodyN>
+                                <TextBodyP>Count</TextBodyP> 
                             </TextBody>
                         </BoxContent>
                         <BoxContent>
                             <Tittle>
-                                INVESTMENT
+                                <BoxContentImg src={retiroefectivoAzul} alt="persona"/>
+                                Balance
                             </Tittle>
                             <TextBody>
-                                Reward : {investmentReward}
+                               <TextBodyN>{totalBalance}</TextBodyN>
+                                <TextBodyP>Total</TextBodyP> 
                             </TextBody>
                         </BoxContent>
-                    </SecondPart>
+                        <BoxContent>
+                            <Tittle>
+                                <BoxContentImg src={mano} alt="persona"/>
+                                Investment
+                            </Tittle>
+                            <TextBody>
+                               <TextBodyN>{investmentReward}</TextBodyN>
+                                <TextBodyP>Reward</TextBodyP> 
+                            </TextBody>
+                        </BoxContent>
+                       
+                    {/*</FirstPart>*/}
+                    {/*<SecondPart>*/}
+                    {/*</SecondPart>*/}
                 </UpperBody>
                 {/* <div><h5>Reference cap</h5></div> */}
                 <MidBody>
-                    <FirstPart>
                         <BoxContent>
                             <LevelBox>
-                                1: <ProgressBar>
+                                1 <ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateBar(referalPlans[0]?.accountCap, 1)}%` }}>
                                     </ProgressBarPercent>
                                 </ProgressBar>
@@ -302,7 +376,7 @@ const Home = ({ mode }) => {
                         </BoxContent>
                         <BoxContent>
                             <LevelBox>
-                                2: <ProgressBar>
+                                2 <ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateBar(referalPlans[1]?.accountCap, 2)}%` }}>
                                     </ProgressBarPercent>
                                 </ProgressBar>
@@ -310,7 +384,7 @@ const Home = ({ mode }) => {
                         </BoxContent>
                         <BoxContent>
                             <LevelBox>
-                                3: <ProgressBar>
+                                3 <ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateBar(referalPlans[2]?.accountCap, 3)}%` }}>
                                     </ProgressBarPercent>
                                 </ProgressBar>
@@ -318,7 +392,7 @@ const Home = ({ mode }) => {
                         </BoxContent>
                         <BoxContent>
                             <LevelBox>
-                                4: <ProgressBar>
+                                4 <ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateBar(referalPlans[3]?.accountCap, 4)}%` }}>
                                     </ProgressBarPercent>
                                 </ProgressBar>
@@ -326,18 +400,15 @@ const Home = ({ mode }) => {
                         </BoxContent>
                         <BoxContent>
                             <LevelBox>
-                                5: <ProgressBar>
+                                5 <ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateBar(referalPlans[4]?.accountCap, 5)}%` }}>
                                     </ProgressBarPercent>
                                 </ProgressBar>
                             </LevelBox>
                         </BoxContent>
-                    </FirstPart>
-
-                    <FirstPart>
-                        <BoxContent>
+                            <BoxContent>
                             <LevelBox>
-                                6: <ProgressBar>
+                                6 <ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateBar(referalPlans[5]?.accountCap, 6)}%` }}>
                                     </ProgressBarPercent>
                                 </ProgressBar>
@@ -345,7 +416,7 @@ const Home = ({ mode }) => {
                         </BoxContent>
                         <BoxContent>
                             <LevelBox>
-                                7: <ProgressBar>
+                                7 <ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateBar(referalPlans[6]?.accountCap, 7)}%` }}>
                                     </ProgressBarPercent>
                                 </ProgressBar>
@@ -353,7 +424,7 @@ const Home = ({ mode }) => {
                         </BoxContent>
                         <BoxContent>
                             <LevelBox>
-                                8: <ProgressBar>
+                                8 <ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateBar(referalPlans[7]?.accountCap, 8)}%` }}>
                                     </ProgressBarPercent>
                                 </ProgressBar>
@@ -361,7 +432,7 @@ const Home = ({ mode }) => {
                         </BoxContent>
                         <BoxContent>
                             <LevelBox>
-                                9: <ProgressBar>
+                                9 <ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateBar(referalPlans[8]?.accountCap, 9)}%` }}>
                                     </ProgressBarPercent>
                                 </ProgressBar>
@@ -369,36 +440,40 @@ const Home = ({ mode }) => {
                         </BoxContent>
                         <BoxContent>
                             <LevelBox>
-                                10: <ProgressBar>
+                                10 <ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateBar(referalPlans[9]?.accountCap, 10)}%` }}>
 
                                     </ProgressBarPercent>
                                 </ProgressBar>
                             </LevelBox>
                         </BoxContent>
-                    </FirstPart>
                 </MidBody>
                 {/* <div><h5>Global</h5></div> */}
                 <FooterBody>
                     <FirstPart>
                         <BottomContent>
-                            <BoxContent>
+                            <BoxContentSell>
                                 <BottomWrapper>
-                                    NFT SELLED: {totalSupply}
+                                <BoxContentImg2 src={NFT} alt="nft"/>
+                                NFT Selled 
                                 </BottomWrapper>
-                            </BoxContent>
+                                {totalSupply}
+                            </BoxContentSell>
                         </BottomContent>
                     </FirstPart>
                     <FirstPart>
                         <BottomContent>
-                            <BoxContent>
+                            <BoxContentSell>
                                 <BottomWrapper>
-                                    Accounts: {allAccounts.length + 10}
+                                <BoxContentImg2 src={fama} alt="fama"/>
+                                Accounts: 
                                 </BottomWrapper>
-                            </BoxContent>
+                                {allAccounts.length + 10}
+                            </BoxContentSell>
                         </BottomContent>
                     </FirstPart>
                 </FooterBody>
+                <Footer />
             </Home>
         </>
     )

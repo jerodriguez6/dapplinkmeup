@@ -3,6 +3,9 @@ import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import Swal from 'sweetalert2'
 import { NFT_PRICES } from '../const'
+import Footer from '../components/Footer'
+
+
 const Plan = ({ mode }) => {
 
     const Status = styled.div`
@@ -248,6 +251,7 @@ const Plan = ({ mode }) => {
 
 
     return (
+        <>
         <Status>
             {investmentPlans.length > 0 ?
                 investmentPlans.map((level, index) => {
@@ -297,6 +301,8 @@ const Plan = ({ mode }) => {
             }
 
         </Status>
+        <Footer />
+        </>
     )
 }
 

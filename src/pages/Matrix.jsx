@@ -13,6 +13,8 @@ import nft8png from '../assets/8.png'
 import nft9png from '../assets/9.png'
 import nft10png from '../assets/10.png'
 import backImg from '../assets/back/GRIS.png'
+import Footer from '../components/Footer'
+
 
 const Matrix = ({mode}) => {
 
@@ -33,7 +35,7 @@ const Matrix = ({mode}) => {
     display: flex;
 
     gap: 20px;
-    height: 70vh;
+    height: 90vh;
     
     flex-direction: column;
 
@@ -45,21 +47,34 @@ const Matrix = ({mode}) => {
     height: 70px;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 10%;
     select {
-        width: 180px;
-        height: 50px;
-        border-radius: 10px;
+        display:flex;
+        gap:5%;
         border: none;
         outline: none;
-        background: ${mode ? "#222228" : "#4f4f51"};
-        color: white;
-        font-size: 16px;
-        font-weight: 600;
+        background: ${mode ? "transparent" : "#4f4f51"};
+        color:  #83DEFF;
+        font-size: 35px;
+        font-weight: 900;
         cursor: pointer;
-        font-size: 20px;
     }
+    select option{
+        width: 1%;
+        font-size: 20px;
+        background: #0A0A26;
+        color: white;
+        font-weight: 600;
+        border:2px solid #5b6eff;
+        text-aling:center;
+    }
+    @media (max-width: 500px) {
+        select {
+            font-size: 20px;
 
+        }
+
+    }
     `
 
     const CarrouselBox = styled.div`
@@ -75,6 +90,7 @@ const Matrix = ({mode}) => {
     overflow: auto;
     justify-content: center;
     align-items: center;
+
     `
     const StyledNode = styled.div`
     /* background: url(assets/img/others/account.png);
@@ -84,14 +100,29 @@ const Matrix = ({mode}) => {
     position: relative;
     width: 60px;
     height: 100px;
-    border-radius: 8px;
     display: inline-block;
-    border: ${mode ? "1px solid #ffffff" : "1px solid #2d2dcd"};
+    //border: ${mode ? "1px solid #ffffff" : "1px solid #2d2dcd"};
     position: relative;
     z-index: 1;
-    overflow: hidden;
+    //overflow: hidden;
     img {
         width: 105%;
+        box-shadow: 0 0 10px 2px #fff;
+        border-radius: 10px;
+
+    }
+    @media (max-width: 768px) {
+        width:40px;
+    }
+    @media (max-width: 500px) {
+        width:15px;
+        img{
+            width:20px;
+            border-radius: 5px;
+            height: 50px;
+
+
+        }
     }
   `;
 
@@ -109,6 +140,20 @@ const Matrix = ({mode}) => {
   width: 100%;
   display: flex;
     justify-content: center;    
+  `
+  const SelectCarrouselEspa = styled.div`
+  width: 30%;
+  display: flex;
+    justify-content: center; 
+    border:2px solid #5b6eff;
+    border-radius: 10px;  
+    align-items:center;
+    gap: 8%;
+    @media (max-width: 500px) {
+       p{
+        font-size:8px;
+       }
+    }
   `
 
     const {accountLevel, nftByLevel, paymentContract} = useSelector(state => state.web3)
@@ -339,7 +384,9 @@ const Matrix = ({mode}) => {
   return (
     <Matrix>
         <SelectCarrousel>   
-            Level:
+        <SelectCarrouselEspa>
+        <p>NFT Level</p>
+
             <select onChange={(e) => changeLevel(e)} value={selectedLevel}>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -357,110 +404,113 @@ const Matrix = ({mode}) => {
                 <button>search</button>
             </div> */}
         
+            </SelectCarrouselEspa>
         </SelectCarrousel>
-        {accountLevel >= selectedLevel ? 
+        {/*{accountLevel >= selectedLevel ? */}
         <MatrixBox>
         <Tree lineWidth={'2px'} lineColor={mode?'white':'#2d2dcd'} lineBorderRadius={'10px'}>
             <TreeNode label={
             <StyledNode>
                 <img src={myPosition ? NFTs[myPosition.level-1] : backImg} alt="nft" />
-                <FixedId>
+                {/*<FixedId>
                 ID: {myPosition.id}
-                </FixedId>
+                </FixedId>*/}
             </StyledNode>}>
 
                 <TreeNode label={
                     <StyledNode>
                      <img src={firstChildBool ? NFTs[firstChild.level-1] : backImg} alt="nft" />
-                     <FixedId>
+                     {/*<FixedId>
                         ID: {firstChild.id}
-                        </FixedId>
+                        </FixedId>*/}
                     </StyledNode>}>
 
                     <TreeNode label={
                         <StyledNode>
                         <img src={firstGrandChildBool ? NFTs[firstGrandChild.level-1] : backImg} alt="nft" />
-                        <FixedId>
+                        {/*<FixedId>
                         ID: {firstGrandChild.id}
-                        </FixedId>
+                        </FixedId>*/}
                         </StyledNode>}/>
 
                     <TreeNode label={
                     <StyledNode>
                         <img src={secondGrandChildBool ? NFTs[secondGrandChild.level-1] : backImg} alt="nft" />
-                        <FixedId>
+                        {/*<FixedId>
                         ID: {secondGrandChild.id}
-                        </FixedId>
+                        </FixedId>*/}
                     </StyledNode>}/>
                     <TreeNode label={<StyledNode>
                         <img src={thirdGrandChildBool ? NFTs[thirdGrandChild.level-1] : backImg} alt="nft" />
-                        <FixedId>
+                        {/*<FixedId>
                         ID: {thirdGrandChild.id}
-                        </FixedId>
+                        </FixedId>*/}
                     </StyledNode>}/>
 
                 </TreeNode>
                 <TreeNode label={<StyledNode>
                     <img src={secondChildBool ? NFTs[secondChild.level-1] : backImg} alt="nft" />
-                    <FixedId>
+                    {/*<FixedId>
                     ID: {secondChild.id}
-                    </FixedId>
+                    </FixedId>*/}
                     </StyledNode>}>
                     <TreeNode label={<StyledNode>
                         <img src={fourthGrandChildBool ? NFTs[fourthGrandChild.level-1] : backImg} alt="nft" />
-                        <FixedId>
+                        {/*<FixedId>
                         ID: {fourthGrandChild.id}
-                        </FixedId>
+                        </FixedId>*/}
                         </StyledNode>}/>
                     <TreeNode label={<StyledNode>
                         <img src={fifthGrandChildBool ? NFTs[fifthGrandChild.level-1] : backImg} alt="nft" />
-                        <FixedId>
+                        {/*<FixedId>
                         ID: {fifthGrandChild.id}
-                        </FixedId>
+                        </FixedId>*/}
                         </StyledNode>}/>
                     <TreeNode label={<StyledNode>
                         <img src={sixthGrandChildBool ? NFTs[sixthGrandChild.level-1] : backImg} alt="nft" />
-                        <FixedId>
+                        {/*<FixedId>
                         ID: {sixthGrandChild.id}
-                        </FixedId>
+                        </FixedId>*/}
                         </StyledNode>}/>
 
                 </TreeNode>
                 <TreeNode label={<StyledNode>
                     <img src={thirdChildBool ? NFTs[thirdChild.level-1] : backImg} alt="nft" />
-                    <FixedId>
+                    {/*<FixedId>
                     ID: {thirdChild.id}
-                    </FixedId>
+                    </FixedId>*/}
                     </StyledNode>}>
                     <TreeNode label={
                     <StyledNode>
                         <img src={seventhGrandChildBool ? NFTs[seventhGrandChild.level-1] : backImg} alt="nft" />
-                        <FixedId>
+                        {/*<FixedId>
                         ID: {seventhGrandChildBool.id}
-                        </FixedId>
+                        </FixedId>*/}
                     </StyledNode>}/>
                     <TreeNode label={<StyledNode>
                         <img src={eighthGrandChildBool ? NFTs[eighthGrandChild.level-1] : backImg} alt="nft" />
-                        <FixedId>
+                        {/*<FixedId>
                         ID: {eighthGrandChildBool.id}
-                        </FixedId>
+                        </FixedId>*/}
                         </StyledNode>}/>
                     <TreeNode label={<StyledNode>
                         <img src={ninthGrandChildBool ? NFTs[ninthGrandChild.level-1] : backImg} alt="nft" />
-                        <FixedId>
+                        {/*<FixedId>
                         ID: {ninthGrandChildBool.id}
-                        </FixedId>
+                        </FixedId>*/}
                         </StyledNode>}/>
                 </TreeNode>
             </TreeNode>
         </Tree>
         </MatrixBox>
-        : 
+        {/*: 
 
         <Wrapper>
            <h3>Dont have access to this level</h3>         
         </Wrapper>
-        }
+        }*/}
+                <Footer />
+
     </Matrix>
   )
 }

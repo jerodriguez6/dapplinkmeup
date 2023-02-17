@@ -4,13 +4,43 @@ import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { ethers } from 'ethers'
+import Footer from '../components/Footer'
 
 const Team = () => {
     const Team = styled.div`
     gap: 20px;
     height: 70vh;
-
+    width:86%;
+    margin-left:6%;
     overflow-y: auto;
+    border: 2px solid #5b6eff;
+    border-radius: 20px;
+    padding:40px;
+    .table{
+        overflow: auto;
+    }
+    .table thead th {
+        text-align: center;
+        border-bottom: 2px solid #5B6EFF;
+        font-size: 23px;
+        font-weight: 100;
+    }
+    .table td, .table th {
+        border-top: none;
+        text-align: center;
+        font-size: 23px;
+        font-weight: 100;
+    }
+    @media (max-width: 768px) {
+        .table td, .table th {
+            font-size: 15px;
+        }
+        .table thead th {
+            font-size: 15px;
+        }
+        overflow-x: auto;
+
+    }
     `
 
     const Section = styled.div`
@@ -55,8 +85,9 @@ const Team = () => {
 
 
   return (
+    <>
     <Team>
-        <Section>
+        {/*<Section>*/}
                 {/* <div>                
                 <input type="text"
                 placeholder="search address" 
@@ -65,24 +96,24 @@ const Team = () => {
                 
                 </div>
                 <div>
-                    <label>Filter by status</label>
-                    <select>
-                        <option>all</option>
-                        <option>active</option>
-                        <option>inactive</option>
-                    </select>
+                <label>Filter by status</label>
+                <select>
+                <option>all</option>
+                <option>active</option>
+                <option>inactive</option>
+                </select>
                 </div>
                 <div>
-                    <label>Filter by level</label>
-                    <select>
-                        <option>all</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                    </select>
-                </div> */}
-        </Section>
+                <label>Filter by level</label>
+                <select>
+                <option>all</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                </select>
+            </div> */}
+        {/*</Section>*/}
         <table className="table">
             <thead className="table-header">
                 <tr className="table-header">
@@ -94,19 +125,25 @@ const Team = () => {
                 </tr>
             </thead>
             <tbody className="table-body">
-                { referalPerLevel.length > 0 &&
-                referalPerLevel.map((item, index) => (
-                    <tr key={index} className="table-row">
-                        <th scope="row">{splitAddress(item.address)}</th>
-                        <td>{item.level}</td>
+                {/*{ 
+                    referalPerLevel.length > 0 &&
+                referalPerLevel.map((item, index) => (*/}
+                    <tr  className="table-row">
+                        <th scope="row">ffviujuibytf6tgui</th>
+                        {/*<th scope="row">{splitAddress(item.address)}</th>*/}
+                        <td>tuyvyiubñiu</td>
+                        <td>ghjkmlñ</td>
+                        <td>fghjklñ</td>
+                        {/*<td>{item.level}</td>
                         <td>{item.status? "active" : "inactive"}</td>
-                        <td>{item.countReferals}</td>
+                    <td>{item.countReferals}</td>*/}
                     </tr>
-                ))}
+                
             </tbody>
         </table>
-
     </Team>
+    <Footer />
+    </>
   )
 }
 

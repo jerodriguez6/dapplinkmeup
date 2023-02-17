@@ -8,26 +8,37 @@ import { ethers } from 'ethers'
 import ReinvestModal from '../components/ReinvestModal'
 import WithdrawModal from '../components/WithdrawModal'
 import { connectWallet } from '../redux/web3Actions'
+import retiroefectivoAzul from '../assets/retiroefectivoAzul.png'
+import mano from '../assets/mano.png'
+import Footer from '../components/Footer'
+
 
 const Status = ({mode}) => {
 
     const Status = styled.div`
     gap: 20px;
-    height: 70vh;
-   
-    overflow-y: auto;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(50%,1fr)); 
+    margin-left:6%;
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(1, minmax(50%,1fr)); 
 
+    }
     `
 
     const Section = styled.div`
     display: flex;
     width: 90%;
-    height: 115px;
+    //height: 115px;
     align-items: center;
-    background: ${mode ? "linear-gradient(#2b2b31,#2a2a30) padding-box" : "linear-gradient(#bfbfc0,#b4b4b9) padding-box"};
-    box-shadow: 5px 2px 1px 1px ${mode ? "#fff" : "#00000080"};
+    background: ${mode ? "transparent" : "linear-gradient(#bfbfc0,#b4b4b9) padding-box"};
     justify-content: space-between;
-    margin: 8px auto;
+    flex-direction:column;
+    //margin: 8px auto;
+    border: 2px solid #5b6eff;
+    border-radius: 20px;
+    padding:2% 4%;
 
     `
 
@@ -36,20 +47,22 @@ const Status = ({mode}) => {
     align-items: center;
     justify-content: center;
     width: 80px;
-    height: 40px;
-    border-radius: 5px;
+    //height: 40px;
+    border-radius: 20px;
     border: none;
     outline: none;
-    background: linear-gradient( rgba(240, 159, 94, 1), rgba(87, 80, 245, 1), rgba(134, 230, 255, 1)) padding-box;
+    background: linear-gradient(to right ,#5B6EFF,#83DEFF);
     color: white;
     font-size: 12px;
     font-weight: 600;
     cursor: pointer;
-    @media (max-width: 768px) {
-        width: 60px;
-        height: 30px;
-        font-size: 10px;
-    }
+    padding:2px;
+
+    //@media (max-width: 768px) {
+    //    width: 60px;
+    //    height: 30px;
+    //    font-size: 10px;
+    //}
     `
 
     const Cancel = styled.div`
@@ -57,34 +70,38 @@ const Status = ({mode}) => {
     align-items: center;
     justify-content: center;
     width: 80px;
-    height: 40px;
-    border-radius: 5px;
+    //height: 40px;
+    border-radius: 20px;
     border: none;
     outline: none;
-    background: #0051ff;
+    background: linear-gradient(to right ,#5B6EFF,#83DEFF);
     color: white;
     font-size: 12px;
     font-weight: 600;
     cursor: pointer;
-    @media (max-width: 768px) {
-        width: 60px;
-        height: 30px;
-        font-size: 10px;
-    }
+    padding:2px;
+    //@media (max-width: 768px) {
+    //    width: 60px;
+    //    height: 30px;
+    //    font-size: 10px;
+    //}
     `
 
     const ProgressBar = styled.div`
     display: flex;
     justify-content: initial;
     align-items: center;
-    width: 85%;
-    height: 30%;
+    width: 90%;
+    height: 20%;
     min-height: 20px;
     margin-left: 10px;
     border: 1px solid white;
     border-radius: 10px;
+    justify-content:end;
+    padding-right:7%;
+    //margin-right: 10%;
     @media (max-width: 768px) {
-        width: 80%;
+        width: 90%;
     }
     `
 
@@ -98,6 +115,10 @@ const Status = ({mode}) => {
     background: linear-gradient(to right, rgba(240, 159, 94, 1), rgba(87, 80, 245, 1), rgba(134, 230, 255, 1)) padding-box;
     border-top: 1px solid white;
     border-bottom: 1px solid white;
+    p{
+        position:relative;
+    
+    }
     
     `
 
@@ -106,9 +127,14 @@ const Status = ({mode}) => {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 20%;
-    height: 100%;
-
+    //width: 20%;
+    //height: 100%;
+    //margin-left:5%;
+    h2{
+        color:#7AC2FF;
+        font-size:50px;
+        font-weight:800;
+    }
     `
 
     const RigthSide = styled.div`
@@ -127,7 +153,7 @@ const Status = ({mode}) => {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 60%;
+    //width: 60%;
     height: 100%;
   
     `
@@ -135,10 +161,13 @@ const Status = ({mode}) => {
     const Capdiv = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap:5%;
     width: 80%;
     font-size: 12px;
     font-weight: 600;
+    img{
+        width:10%;
+    }
     `
 
     const RoundedNum = styled.div`
@@ -185,6 +214,19 @@ const Status = ({mode}) => {
         height: 30px;
         border-radius: 15px;
     }
+    `
+    const SectionFirts = styled.div`
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+
+    
+    `
+    const SectionSecond = styled.div`
+    width: 70%;
+    display: flex;
+
+    
     `
 
     const navigate = useNavigate()
@@ -260,29 +302,27 @@ const Status = ({mode}) => {
                 referalPlans.map((level, index) => {
                     return (
                         <Section key={index}>
+                            <SectionFirts>
+                            <SectionSecond>
+
                             <LeftSide>
-                                {level.status === true ?
-                            <RoundedNum>
-                                <h2>{parseInt(level.level)}</h2>
-                            </RoundedNum>
-                            :
-                            <Roundedgrey>
-                            <h2>{parseInt(level.level)}</h2>
-                            </Roundedgrey>
-                            }
+                                <h2>{index +1}</h2>
+                            
                             </LeftSide>
                             <Center>
                                 <Capdiv>
-                            <p>balance: {level.balance} USD</p>          <p>withdraw: {level.retireCap} USD</p>
+                                    <img src={retiroefectivoAzul} alt="" />
+                                    <p>balance: {level.balance} USD</p>          
                                 </Capdiv>
-                                <ProgressBar>
-                                    <ProgressBarPercent style={{ width: `${calculateBar(level.accountCap, level.level)}%` }}>
-                                        <p> {calculateBar(level.accountCap, level.level)}%</p>
-                                    </ProgressBarPercent>
-                                </ProgressBar>
+                                <Capdiv>
+                                    <img src={mano} alt="" />
+                                    <p>withdraw: {level.retireCap} USD</p>
+                                </Capdiv>
+                               
                             </Center>
+                            </SectionSecond>
                             <RigthSide>
-                                {accountLevel >= index + 1 ?
+                                {/*{accountLevel >= index + 1 ?*/}
                                 <>
                                 <Cancel onClick={() => handleOpenModal(level.level)}>
                                     Renew
@@ -292,12 +332,18 @@ const Status = ({mode}) => {
                                 </Rainbow>
 
                                 </>
-                                :
-                                <Rainbow onClick={() => navigate('/buy')}
+                                {/*:*/}
+                                {/*<Rainbow onClick={() => navigate('/buy')}
                                 >Buy NFT
-                                </Rainbow>
-                                }
+                                </Rainbow>*/}
+                                {/*}*/}
                             </RigthSide>
+                        </SectionFirts>
+                            <ProgressBar>
+                                <ProgressBarPercent style={{ width: `${calculateBar(level.accountCap, level.level)}%` }}>
+                                    <p> {calculateBar(level.accountCap, level.level)}%</p>
+                                </ProgressBarPercent>
+                            </ProgressBar>
                         </Section>
                     )
                 })
@@ -306,6 +352,7 @@ const Status = ({mode}) => {
             }
 
         </Status>
+        <Footer />
         </>
     )
 }

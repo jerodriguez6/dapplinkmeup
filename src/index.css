@@ -7,11 +7,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
-  max-height: 100vh;
+  /*max-height: 100vh;*/
+  background: #0A0921;
+
 
 }
 
-#root{overflow: hidden;}
+/*#root{overflow: hidden;}*/
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

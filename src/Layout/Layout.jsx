@@ -4,11 +4,13 @@ import TopBar from '../components/TopBar'
 import {createGlobalStyle } from 'styled-components'
 import Navigation from '../components/Navigation'
 import fondo from '../assets/Fondo1.png'
-import fondo2 from '../assets/Fondo2.png'
+import fondo2 from '../assets/Capa1.png'
 
 import SVG from '../assets/squircle.svg'
 import styled from 'styled-components'
 import star from '../assets/star.png'
+import Footer from '../components/Footer'
+
 
 
 const Layout = ({mode, toggleMode}) => {
@@ -16,10 +18,9 @@ const Layout = ({mode, toggleMode}) => {
     const GlobalStyle = createGlobalStyle`
     body {
         /* background: ${mode ? "linear-gradient(#04040e,#080828) padding-box" : "linear-gradient(#f2f2f8,#e0e2e7) padding-box"}; */
-        background: ${mode ?  `url(${fondo2})`: `url(${fondo})`};
-        background-size: object-fit;
-        background-repeat: no-repeat;
-        background-position: center;
+        //background-size: cover;
+        //background-repeat: no-repeat;
+        //background-position: contain;
         color: ${mode ? "#fff" : "#000"};
         //animation change delay 080828 04040e
         transition: all 0.5s ease;
@@ -27,7 +28,7 @@ const Layout = ({mode, toggleMode}) => {
         overflow-x: hidden;
         margin: 0;
         padding: 0;
-        height: 100vh;
+        //height: 100vh;
         position: relative;
     }
     `;
@@ -279,7 +280,7 @@ const Layout = ({mode, toggleMode}) => {
   return (
     <> 
     <GlobalStyle />
-    <Squircle1>
+    {/*<Squircle1>
         <img src={star} alt="squircle" />
     </Squircle1>
     <Squircle2>
@@ -302,7 +303,7 @@ const Layout = ({mode, toggleMode}) => {
     </Squircle03>
     <Squircle04>
     <img src={star} alt="squircle" />
-    </Squircle04>
+    </Squircle04>*/}
         <TopBar mode={mode} toggleMode={toggleMode}/>
         <Navigation mode={mode} />
         <Outlet />
