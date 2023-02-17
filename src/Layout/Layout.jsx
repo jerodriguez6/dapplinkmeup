@@ -16,10 +16,9 @@ const Layout = ({mode, toggleMode}) => {
     const GlobalStyle = createGlobalStyle`
     body {
         /* background: ${mode ? "linear-gradient(#04040e,#080828) padding-box" : "linear-gradient(#f2f2f8,#e0e2e7) padding-box"}; */
-        background: ${mode ?  `url(${fondo2})`: `url(${fondo})`};
-        background-size: cover;
+        //background-size: cover;
         //background-repeat: no-repeat;
-        background-position: contain;
+        //background-position: contain;
         color: ${mode ? "#fff" : "#000"};
         //animation change delay 080828 04040e
         transition: all 0.5s ease;
@@ -27,7 +26,7 @@ const Layout = ({mode, toggleMode}) => {
         overflow-x: hidden;
         margin: 0;
         padding: 0;
-        height: 100vh;
+        //height: 100vh;
         position: relative;
     }
     `;
