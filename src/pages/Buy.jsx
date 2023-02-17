@@ -116,18 +116,6 @@ const Buy = ({ mode }) => {
     border:2px solid #5b6eff;
     border-radius: 20px;
     //box-shadow: 5px 2px 1px 1px ${mode ? "#fff" : "#00000080"};
-    select {
-        border-radius: 10px;
-        border: none;
-        outline: none;
-        background: ${mode ? 'transparent' : "#2c2c2d"};
-        color: white;
-        font-size: 16px;
-        font-weight: 600;
-        cursor: pointer;
-        font-size: 20px;
-        padding:50%;
-    }
     `
     const Section2 = styled.div`
     display: flex;
@@ -144,15 +132,16 @@ const Buy = ({ mode }) => {
         font-size: 45px;
         font-weight: 900;
         cursor: pointer;
-        padding:50%;
+        text-align: center;
     }
     select option{
+        width: 1%;
         font-size: 20px;
         background: #0A0A26;
         color: white;
         font-weight: 600;
         border:2px solid #5b6eff;
-
+        text-aling:center;
     }
     img{
         width:4%;
@@ -297,7 +286,8 @@ const Buy = ({ mode }) => {
     justify-content: center;
     margin-top:-12%;
     align-items:baseline;
-
+    padding:10%;
+    gap:5%;
     p{
         font-size: 25px;
     }

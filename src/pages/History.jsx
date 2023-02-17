@@ -20,9 +20,62 @@ const History = () => {
 
     justify-content: space-around;
     margin: 5px auto;
+    div{
+        border: 2px solid #5b6eff;
+        border-radius: 20px;
+        padding: 2% 8%;
+    }
+    select{
+        background: transparent;
+        color: #fff;
+        //padding:15% 9%;
+        border:none;
+        font-size: 20px;
+    }
+    select option{
+        background: #0A0A26;
+    }
+    //select option:hover{
+    //    background-color: #0A0A26;
+    //}
+
 
     `
+    const Team = styled.div`
+    gap: 20px;
+    height: 70vh;
+    width:86%;
+    margin-left:6%;
+    overflow-y: auto;
+    border: 2px solid #5b6eff;
+    border-radius: 20px;
+    padding:40px;
+    .table{
+        overflow: auto;
+    }
+    .table thead th {
+        text-align: center;
+        border-bottom: 2px solid #5B6EFF;
+        font-size: 23px;
+        font-weight: 100;
+    }
+    .table td, .table th {
+        border-top: none;
+        text-align: center;
+        font-size: 23px;
+        font-weight: 100;
+    }
+    @media (max-width: 768px) {
+        .table td, .table th {
+            font-size: 15px;
+        }
+        .table thead th {
+            font-size: 15px;
+        }
+        overflow-x: auto;
 
+    }
+    `
     const {paymentContract, referalPerLevel, account} = useSelector(state => state.web3)
 
 
@@ -85,7 +138,7 @@ const History = () => {
     //console.log("withdrawHistory", withdrawHistory)
     //console.log("rewardHistory", rewardHistory)
     return (
-        <>
+        <Team>
             <Section>
                 <div>
                     <select onChange={(e) => setShowTable(e.target.value)}
@@ -151,7 +204,7 @@ const History = () => {
              }
 
             </History>
-        </>
+        </Team>
     )
 }
 

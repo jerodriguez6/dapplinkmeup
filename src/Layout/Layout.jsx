@@ -9,6 +9,8 @@ import fondo2 from '../assets/Capa1.png'
 import SVG from '../assets/squircle.svg'
 import styled from 'styled-components'
 import star from '../assets/star.png'
+import Footer from '../components/Footer'
+
 
 
 const Layout = ({mode, toggleMode}) => {
@@ -305,6 +307,7 @@ const Layout = ({mode, toggleMode}) => {
         <TopBar mode={mode} toggleMode={toggleMode}/>
         <Navigation mode={mode} />
         <Outlet />
+        <Footer />
     </>
   )
 }

@@ -16,7 +16,7 @@ const Home = ({ mode }) => {
     display: flex;
     padding: 0 20px;
     flex-direction: column;
-    height: 70vh;
+    height: 85vh;
     max-width: 1190px;
     margin: 0 auto;
     position: relative;
