@@ -368,7 +368,7 @@ const Home = ({ mode }) => {
                 <MidBody>
                         <BoxContent>
                             <LevelBox>
-                                1: <ProgressBar>
+                                1 <ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateBar(referalPlans[0]?.accountCap, 1)}%` }}>
                                     </ProgressBarPercent>
                                 </ProgressBar>
@@ -376,7 +376,7 @@ const Home = ({ mode }) => {
                         </BoxContent>
                         <BoxContent>
                             <LevelBox>
-                                2: <ProgressBar>
+                                2 <ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateBar(referalPlans[1]?.accountCap, 2)}%` }}>
                                     </ProgressBarPercent>
                                 </ProgressBar>
@@ -384,7 +384,7 @@ const Home = ({ mode }) => {
                         </BoxContent>
                         <BoxContent>
                             <LevelBox>
-                                3: <ProgressBar>
+                                3 <ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateBar(referalPlans[2]?.accountCap, 3)}%` }}>
                                     </ProgressBarPercent>
                                 </ProgressBar>
@@ -392,7 +392,7 @@ const Home = ({ mode }) => {
                         </BoxContent>
                         <BoxContent>
                             <LevelBox>
-                                4: <ProgressBar>
+                                4 <ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateBar(referalPlans[3]?.accountCap, 4)}%` }}>
                                     </ProgressBarPercent>
                                 </ProgressBar>
@@ -400,7 +400,7 @@ const Home = ({ mode }) => {
                         </BoxContent>
                         <BoxContent>
                             <LevelBox>
-                                5: <ProgressBar>
+                                5 <ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateBar(referalPlans[4]?.accountCap, 5)}%` }}>
                                     </ProgressBarPercent>
                                 </ProgressBar>
@@ -408,7 +408,7 @@ const Home = ({ mode }) => {
                         </BoxContent>
                             <BoxContent>
                             <LevelBox>
-                                6: <ProgressBar>
+                                6 <ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateBar(referalPlans[5]?.accountCap, 6)}%` }}>
                                     </ProgressBarPercent>
                                 </ProgressBar>
@@ -416,7 +416,7 @@ const Home = ({ mode }) => {
                         </BoxContent>
                         <BoxContent>
                             <LevelBox>
-                                7: <ProgressBar>
+                                7 <ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateBar(referalPlans[6]?.accountCap, 7)}%` }}>
                                     </ProgressBarPercent>
                                 </ProgressBar>
@@ -424,7 +424,7 @@ const Home = ({ mode }) => {
                         </BoxContent>
                         <BoxContent>
                             <LevelBox>
-                                8: <ProgressBar>
+                                8 <ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateBar(referalPlans[7]?.accountCap, 8)}%` }}>
                                     </ProgressBarPercent>
                                 </ProgressBar>
@@ -432,7 +432,7 @@ const Home = ({ mode }) => {
                         </BoxContent>
                         <BoxContent>
                             <LevelBox>
-                                9: <ProgressBar>
+                                9 <ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateBar(referalPlans[8]?.accountCap, 9)}%` }}>
                                     </ProgressBarPercent>
                                 </ProgressBar>
@@ -440,7 +440,7 @@ const Home = ({ mode }) => {
                         </BoxContent>
                         <BoxContent>
                             <LevelBox>
-                                10: <ProgressBar>
+                                10 <ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateBar(referalPlans[9]?.accountCap, 10)}%` }}>
 
                                     </ProgressBarPercent>
