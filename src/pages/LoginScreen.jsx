@@ -6,22 +6,25 @@ import { connectWallet } from '../redux/web3Actions'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import logo from '../assets/logo.png'
+import banner from '../assets/banner2.png'
 import Loading from '../components/Loading'
 
 
 const LoginScreen = ({mode}) => {
 
     const LoginSection = styled.div`
-    background: ${mode ? "linear-gradient(#080808,#030304) padding-box" : "linear-gradient(#f9f9f9,#dcdce9) padding-box"};
+    background: ${mode ?  `url(${banner})`: `url(${banner})`};
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
     `
 
     const LoginContainer = styled.div`
-    background-color: ${mode ? "#1c1c1e" : "#b4b4b4"};
-    height: 80vh;
+    //height: 80vh;
     width: 50vw;
     min-width: 420px;
     display: flex;
@@ -29,16 +32,20 @@ const LoginScreen = ({mode}) => {
     align-items: center;
     flex-direction: column;
     border-radius: 10px;
-    box-shadow: 5px 2px 1px 1px ${mode ? "#fff" : "#00000080"};
+    margin-top:5%;
+    //box-shadow: 5px 2px 1px 1px ${mode ? "#fff" : "#00000080"};
     `
 
     const MetamaskLogin = styled.button `
-    background-color: #993609;
+    background: ${mode ? "linear-gradient(to right , #5B6EFF, #83DEFF)" : "transparent"};
     color: white;
-    border: 1px solid white;
+    border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 20px;
     font-size: 20px;
+    box-shadow: 0 0 20px #fff;
+    cursor:pointer;
+
     `
 
     const LogoStyle = styled.img`
