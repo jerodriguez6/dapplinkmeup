@@ -273,6 +273,7 @@ const Buy = ({ mode }) => {
     height: 100px;
     min-width: 100px;
     color: #fff;
+    margin-left: 6%;
     h2{
         font-size: 50px;
         color: #83DEFF;
@@ -311,28 +312,58 @@ const Buy = ({ mode }) => {
     width:100%;
     display:flex;
     justify-content: space-between;
+    align-items:center;
     padding: 5% 9%;
+    align-items: center;
     img{
         width:10%;
+        height: 25px;
     }
     p{
-        <font-size:20></font-size:20>px;
+        font-size:20px;
     }
-    
-    `
-    const SectionTotal = styled.div`
+    @media (max-width: 768px) {
+        img{
+            width:12%;
+            height: 26px;
+        }
+    }
+    @media (max-width: 500px) {
+        img{
+        width:8%;
+        height: 24px;
+    }
+}
+
+`
+const SectionTotal = styled.div`
     width:100%;
     display:flex;
     justify-content: space-between;
+    align-items: center;
     padding: 5% 9%;
     img{
-        width:10%;
+        width:7%;
+        height: 25px;
     }
     p{
         font-size:26px;
     }
     
-    `
+    @media (max-width: 768px) {
+        img{
+            width: 9%;
+            height: 32px;
+        }
+    }
+    @media (max-width: 500px) {
+        img{
+        width:8%;
+        height: 24px;
+        }
+    }
+}
+`
     const FoterDiv = styled.div`
     @media (max-width: 768px) {
        display:none;
