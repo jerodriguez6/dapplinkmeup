@@ -97,29 +97,40 @@ const Status = ({mode}) => {
     margin-left: 10px;
     border: 1px solid white;
     border-radius: 10px;
-    justify-content:end;
-    padding-right:7%;
+    justify-content:flex-start;
+    //padding-right:7%;
     //margin-right: 10%;
     @media (max-width: 768px) {
         width: 90%;
     }
     `
-
+    
     const ProgressBarPercent = styled.div`
     display: flex;
+    width: 100%;
     justify-content: initial;
     align-items: center;
     border-radius: 10px;
     height: 100%;
     min-height: 20px;
-    background: linear-gradient(to right, rgba(240, 159, 94, 1), rgba(87, 80, 245, 1), rgba(134, 230, 255, 1)) padding-box;
+    background: linear-gradient(to right, #f5a256, #f5ba85) padding-box;
     border-top: 1px solid white;
     border-bottom: 1px solid white;
-    p{
-        position:relative;
-    
-    }
-    
+
+    `
+    const Span1 = styled.span`
+        position: absolute;
+        right: 11%;
+        @media (max-width: 768px) {
+            right: 21%;
+        }
+    `
+    const Span2 = styled.span`
+        position: absolute;
+        left: 41%;
+        @media (max-width: 768px) {
+            left: 74%;
+        }
     `
 
     const LeftSide = styled.div`
@@ -340,8 +351,14 @@ const Status = ({mode}) => {
                             </RigthSide>
                         </SectionFirts>
                             <ProgressBar>
-                                <ProgressBarPercent style={{ width: `${calculateBar(level.accountCap, level.level)}%` }}>
-                                    <p> {calculateBar(level.accountCap, level.level)}%</p>
+                            <ProgressBarPercent style={{ width: `67%` }}>
+                            {
+                                index % 2 === 0 ? (
+                                      <Span1 className='span1'>{calculateBar(level.accountCap, level.level)}%</Span1>
+                                    ) : (
+                                      <Span2 className='span2'>{calculateBar(level.accountCap, level.level)}%</Span2>
+                                    )
+                            }
                                 </ProgressBarPercent>
                             </ProgressBar>
                         </Section>

@@ -41,6 +41,15 @@ const Team = () => {
         overflow-x: auto;
 
     }
+    @media (max-width: 500px) {
+        .table td, .table th {
+            font-size: 6px;
+        }
+        .table thead th {
+            font-size: 7px;
+        }
+
+    }
     `
 
     const Section = styled.div`

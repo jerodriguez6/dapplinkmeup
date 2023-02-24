@@ -78,6 +78,15 @@ const History = () => {
         overflow-x: auto;
 
     }
+    @media (max-width: 500px) {
+        .table td, .table th {
+            font-size: 6px;
+        }
+        .table thead th {
+            font-size: 7px;
+        }
+
+    }
     `
     const {paymentContract, referalPerLevel, account} = useSelector(state => state.web3)
 
