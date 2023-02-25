@@ -292,7 +292,7 @@ const Plan = ({ mode }) => {
                                     {/*<h2> {parseInt(level.level)}</h2>*/}
                                     <h2> 1</h2>
                                 {/*</RoundedNum>*/}
-                                <p> <span>$ </span>80</p>
+                                <p> <span>$ </span>50.00</p>
 
                                 {/*<ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateRewardPerDay(level.level, level.timestamp) / (NFT_PRICES[level.level - 1]*1.50) * 100}%` }}>*/}
@@ -311,7 +311,7 @@ const Plan = ({ mode }) => {
                                         <Rainbow onClick={() => makeOrder(34)}>
                                             make order</Rainbow>
                                         <Cancel onClick={() => cancelOrder(34)}>
-                                            cancel Plan
+                                            Sell NFT
                                         </Cancel>
                                     </>
                                 {/*}*/}
@@ -335,7 +335,7 @@ const Plan = ({ mode }) => {
                                     {/*<h2> {parseInt(level.level)}</h2>*/}
                                     <h2> 2</h2>
                                 {/*</RoundedNum>*/}
-                                <p> <span>$ </span>80</p>
+                                <p> <span>$ </span>100.00</p>
 
                                 {/*<ProgressBar>
                                     <ProgressBarPercent style={{ width: `${calculateRewardPerDay(level.level, level.timestamp) / (NFT_PRICES[level.level - 1]*1.50) * 100}%` }}>*/}
@@ -354,7 +354,7 @@ const Plan = ({ mode }) => {
                                         <Rainbow onClick={() => makeOrder(34)}>
                                             make order</Rainbow>
                                         <Cancel onClick={() => cancelOrder(34)}>
-                                            cancel Plan
+                                            Sell NFT
                                         </Cancel>
                                     </>
                                 {/*}*/}
@@ -377,6 +377,91 @@ const Plan = ({ mode }) => {
                     <h2>Please buy one NFT first </h2>
                 </Section>
             }*/}
+                       <Section key={2}>
+                            <LeftSide>
+                            <Center>
+                                {/*<RoundedNum>*/}
+                                    {/*<h2> {parseInt(level.level)}</h2>*/}
+                                    <h2> 3</h2>
+                                {/*</RoundedNum>*/}
+                                <p> <span>$ </span>200.00</p>
+
+                                {/*<ProgressBar>
+                                    <ProgressBarPercent style={{ width: `${calculateRewardPerDay(level.level, level.timestamp) / (NFT_PRICES[level.level - 1]*1.50) * 100}%` }}>*/}
+                            </Center>
+                            <RigthSide>
+                                {/*{level.generatedOrder && level.payed === false &&*/}
+                                    {/*<p>waiting payment</p>*/}
+                                    {/*}*/}
+                                {/*{level.generatedOrder && level.payed === true &&*/}
+                                    {/*<Rainbow onClick={() => retireReward(34)}>
+                                        retire
+                                    </Rainbow>*/}
+                                {/*}*/}
+                                {/*{level.generatedOrder === false &&*/}
+                                    <>
+                                        <Rainbow onClick={() => makeOrder(34)}>
+                                            make order</Rainbow>
+                                        <Cancel onClick={() => cancelOrder(34)}>
+                                            Sell NFT
+                                        </Cancel>
+                                    </>
+                                {/*}*/}
+                                {/*{
+                                    0 && <p>Order canceled</p>
+                                }*/}
+
+                            </RigthSide>
+                            </LeftSide>
+                                <ProgressBar>
+                                    <ProgressBarPercent style={{ width: `80%` }}>
+                                    </ProgressBarPercent>
+                                        <span className='span1'>0%</span>
+                                </ProgressBar>
+                        </Section>
+                        <Section key={2}>
+                            <LeftSide>
+                            <Center>
+                                {/*<RoundedNum>*/}
+                                    {/*<h2> {parseInt(level.level)}</h2>*/}
+                                    <h2> 4</h2>
+                                {/*</RoundedNum>*/}
+                                <p> <span>$ </span>300.00</p>
+
+                                {/*<ProgressBar>
+                                    <ProgressBarPercent style={{ width: `${calculateRewardPerDay(level.level, level.timestamp) / (NFT_PRICES[level.level - 1]*1.50) * 100}%` }}>*/}
+                            </Center>
+                            <RigthSide>
+                                {/*{level.generatedOrder && level.payed === false &&*/}
+                                    {/*<p>waiting payment</p>*/}
+                                    {/*}*/}
+                                {/*{level.generatedOrder && level.payed === true &&*/}
+                                    {/*<Rainbow onClick={() => retireReward(34)}>
+                                        retire
+                                    </Rainbow>*/}
+                                {/*}*/}
+                                {/*{level.generatedOrder === false &&*/}
+                                    <>
+                                        <Rainbow onClick={() => makeOrder(34)}>
+                                            make order</Rainbow>
+                                        <Cancel onClick={() => cancelOrder(34)}>
+                                            Sell NFT
+                                        </Cancel>
+                                    </>
+                                {/*}*/}
+                                {/*{
+                                    0 && <p>Order canceled</p>
+                                }*/}
+
+                            </RigthSide>
+                            </LeftSide>
+                                <ProgressBar>
+                                    <ProgressBarPercent style={{ width: `80%` }}>
+                                    </ProgressBarPercent>
+                                        <span className='span1'>0%</span>
+                                </ProgressBar>
+                        </Section>
+                        
 
         </Status>
         <Footer />
