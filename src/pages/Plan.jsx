@@ -9,31 +9,44 @@ import Footer from '../components/Footer'
 const Plan = ({ mode }) => {
 
     const Status = styled.div`
-    gap: 20px;
+    //gap: 20px;
     height: 70vh;
- 
     overflow-y: auto;
-
+    display:flex;
+    flex-direction: column;
+    width: 100%;
     `
-
+    
     const Section = styled.div`
     display: flex;
-    width: 90%;
+    width: 86%;
     height: 115px;
     align-items: center;
-    background: ${mode ? "linear-gradient(#1c1c1e,#131314) padding-box" : "linear-gradient(#59595c,#414145) padding-box"};
+    background: ${mode ? "transparent" : "linear-gradient(#59595c,#414145) padding-box"};
     justify-content: space-between;
-    margin: 5px auto;
+    flex-direction:column;
+    border: 2px solid #5b6eff;
+    //margin: 5px auto;
+    border-radius: 20px;
+    margin-left: 6%;
+    margin-bottom:1%;
 
+    
     `
-
+    
     const LeftSide = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 20%;
+    width: 100%;
     height: 100%;
+    display: flex;
+    padding: 0 1%;
+    //flex-direction: column;
+    //justify-content: center;
+    //align-items: center;
+    justify-content: space-between;
+    align-items: center;
+      @media (max-width: 500px) {
+        padding: 0 3%;
+    }
 
     `
 
@@ -42,19 +55,37 @@ const Plan = ({ mode }) => {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 20%;
-    height: 100%;
+    //width: 20%;
+    //height: 100%;
+    gap:5px;
 
 
     `
 
     const Center = styled.div`
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 60%;
+    //flex-direction: column;
+    //justify-content: center;
+    align-items: baseline;
+    width: 50%;
+    gap:5%;
     height: 100%;
+     h2{
+        color:#7AC2FF;
+        font-size:64px;
+        font-weight:800;
+    }
+    p{
+        font-size:20px;
+    }
+    p span{
+        color:#7AC2FF;
+    }
+      @media (max-width: 500px) {
+       h2{
+        font-size:54px;
+    }
+    }
 
     `
 
@@ -62,26 +93,32 @@ const Plan = ({ mode }) => {
     display: flex;
     justify-content: initial;
     align-items: center;
-    width: 85%;
-    height: 30%;
-    min-height: 20px;
-    margin-left: 10px;
+    width: 98%;
+    //height: 30%;
+    min-height: 15px;
+    //margin-left: 10px;
     border: 1px solid white;
     border-radius: 10px;
     overflow: hidden;
+    margin-bottom:5%;
     @media (max-width: 768px) {
         width: 80%;
+    }
+      span{
+        position: absolute;
+        right: 10%;
     }
     `
 
     const ProgressBarPercent = styled.div`
     display: flex;
     justify-content: initial;
+    //width:100%;
     align-items: center;
     border-radius: 10px;
     height: 100%;
     min-height: 20px;
-    background: linear-gradient(to right, rgba(240, 159, 94, 1), rgba(87, 80, 245, 1), rgba(134, 230, 255, 1)) padding-box;
+    background: linear-gradient( to right, #FFA859, #FFE283);
     border-top: 1px solid white;
     border-bottom: 1px solid white;
     position: relative;
@@ -114,45 +151,37 @@ const Plan = ({ mode }) => {
     `
 
     const Rainbow = styled.div`
-    display: flex;
+     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80px;
-    height: 40px;
-    border-radius: 5px;
+    width: 147px;
+    //height: 40px;
+    border-radius: 20px;
     border: none;
     outline: none;
-    background: linear-gradient( rgba(240, 159, 94, 1), rgba(87, 80, 245, 1), rgba(134, 230, 255, 1)) padding-box;
+    background: linear-gradient(to right ,#5B6EFF,#83DEFF);
     color: white;
-    font-size: 12px;
+    font-size: 14   px;
     font-weight: 600;
     cursor: pointer;
-    @media (max-width: 768px) {
-        width: 60px;
-        height: 30px;
-        font-size: 10px;
-    }
+    padding:2px;
     `
 
     const Cancel = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80px;
-    height: 40px;
-    border-radius: 5px;
+    width: 147px;
+    //height: 40px;
+    border-radius: 20px;
     border: none;
     outline: none;
-    background: #b80606;
+    background: linear-gradient(to right ,#ff0000,#ff5252);
     color: white;
-    font-size: 12px;
+    font-size: 14   px;
     font-weight: 600;
     cursor: pointer;
-    @media (max-width: 768px) {
-        width: 60px;
-        height: 30px;
-        font-size: 10px;
-    }
+    padding:2px;
     `
 
 
@@ -253,52 +282,101 @@ const Plan = ({ mode }) => {
     return (
         <>
         <Status>
-            {investmentPlans.length > 0 ?
+            {/*{investmentPlans.length > 0 ?
                 investmentPlans.map((level, index) => {
-                    return (
-                        <Section key={index}>
+                    return (*/}
+                        <Section key={1}>
                             <LeftSide>
-                                <RoundedNum>
-                                    <h2> {parseInt(level.level)}</h2>
-                                </RoundedNum>
-                            </LeftSide>
                             <Center>
-                                <ProgressBar>
-                                    <ProgressBarPercent style={{ width: `${calculateRewardPerDay(level.level, level.timestamp) / (NFT_PRICES[level.level - 1]*1.50) * 100}%` }}>
-                                        <p>$: {calculateRewardPerDay(level.level, level.timestamp)}</p>
-                                    </ProgressBarPercent>
-                                </ProgressBar>
+                                {/*<RoundedNum>*/}
+                                    {/*<h2> {parseInt(level.level)}</h2>*/}
+                                    <h2> 1</h2>
+                                {/*</RoundedNum>*/}
+                                <p> <span>$ </span>80</p>
+
+                                {/*<ProgressBar>
+                                    <ProgressBarPercent style={{ width: `${calculateRewardPerDay(level.level, level.timestamp) / (NFT_PRICES[level.level - 1]*1.50) * 100}%` }}>*/}
                             </Center>
                             <RigthSide>
-                                {level.generatedOrder && level.payed === false &&
-                                    <p>waiting payment</p>}
-                                {level.generatedOrder && level.payed === true &&
-                                    <Rainbow onClick={() => retireReward(level.level)}>
+                                {/*{level.generatedOrder && level.payed === false &&*/}
+                                    {/*<p>waiting payment</p>*/}
+                                    {/*}*/}
+                                {/*{level.generatedOrder && level.payed === true &&*/}
+                                    {/*<Rainbow onClick={() => retireReward(34)}>
                                         retire
-                                    </Rainbow>
-                                }
-                                {level.generatedOrder === false &&
+                                    </Rainbow>*/}
+                                {/*}*/}
+                                {/*{level.generatedOrder === false &&*/}
                                     <>
-                                        <Rainbow onClick={() => makeOrder(level.level)}>
+                                        <Rainbow onClick={() => makeOrder(34)}>
                                             make order</Rainbow>
-                                        <Cancel onClick={() => cancelOrder(level.level)}>
+                                        <Cancel onClick={() => cancelOrder(34)}>
                                             cancel Plan
                                         </Cancel>
                                     </>
-                                }
-                                {
-                                    level.canceled && <p>Order canceled</p>
-                                }
+                                {/*}*/}
+                                {/*{
+                                    0 && <p>Order canceled</p>
+                                }*/}
 
                             </RigthSide>
+                            </LeftSide>
+                                <ProgressBar>
+                                    <ProgressBarPercent style={{ width: `80%` }}>
+                                    </ProgressBarPercent>
+                                        <span className='span1'>0%</span>
+                                </ProgressBar>
                         </Section>
-                    )
+                        {/*//////////////////////////////////////////////////////////////////////*/}
+                        <Section key={2}>
+                            <LeftSide>
+                            <Center>
+                                {/*<RoundedNum>*/}
+                                    {/*<h2> {parseInt(level.level)}</h2>*/}
+                                    <h2> 2</h2>
+                                {/*</RoundedNum>*/}
+                                <p> <span>$ </span>80</p>
+
+                                {/*<ProgressBar>
+                                    <ProgressBarPercent style={{ width: `${calculateRewardPerDay(level.level, level.timestamp) / (NFT_PRICES[level.level - 1]*1.50) * 100}%` }}>*/}
+                            </Center>
+                            <RigthSide>
+                                {/*{level.generatedOrder && level.payed === false &&*/}
+                                    {/*<p>waiting payment</p>*/}
+                                    {/*}*/}
+                                {/*{level.generatedOrder && level.payed === true &&*/}
+                                    {/*<Rainbow onClick={() => retireReward(34)}>
+                                        retire
+                                    </Rainbow>*/}
+                                {/*}*/}
+                                {/*{level.generatedOrder === false &&*/}
+                                    <>
+                                        <Rainbow onClick={() => makeOrder(34)}>
+                                            make order</Rainbow>
+                                        <Cancel onClick={() => cancelOrder(34)}>
+                                            cancel Plan
+                                        </Cancel>
+                                    </>
+                                {/*}*/}
+                                {/*{
+                                    0 && <p>Order canceled</p>
+                                }*/}
+
+                            </RigthSide>
+                            </LeftSide>
+                                <ProgressBar>
+                                    <ProgressBarPercent style={{ width: `80%` }}>
+                                    </ProgressBarPercent>
+                                        <span className='span1'>0%</span>
+                                </ProgressBar>
+                        </Section>
+                    {/*)
                 })
                 :
                 <Section>
                     <h2>Please buy one NFT first </h2>
                 </Section>
-            }
+            }*/}
 
         </Status>
         <Footer />
