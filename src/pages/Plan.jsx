@@ -319,7 +319,7 @@ const Plan = ({ mode }) => {
                                         <Rainbow onClick={() => makeOrder(34)}>
                                             Make order</Rainbow>
                                         <Cancel onClick={() => cancelOrder(34)}>
-                                            cancel Plan
+                                            Sell NFT
                                         </Cancel>
                                     </>
                                 {/*}*/}
