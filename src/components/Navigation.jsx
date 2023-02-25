@@ -151,7 +151,7 @@ const Navigation = ({mode}) => {
             icon: <GiCoins size={40} />
         },
         {
-            name: "Plans",
+            name: "Sell",
             link: "/plans",
             icon: <BiRefresh size={40} />
         },
